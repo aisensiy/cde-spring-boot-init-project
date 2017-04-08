@@ -1,0 +1,10 @@
+.gradle/
+.idea/
+build/
+.DS_Store
+*.iml
+out/
+*.ipr
+*.iws
+.vagrant/
+verify/node_modules

@@ -1,0 +1,46 @@
+swagger: "2.0"
+info:
+  version: "0.0.1"
+  title: Greeting
+# during dev, should point to your local machine
+host: localhost
+# basePath prefixes all resource paths
+basePath: /
+#
+schemes:
+  - http
+  - https
+# format of bodies a client can send (Content-Type)
+consumes:
+  - application/json
+# format of the responses to the client (Accepts)
+produces:
+  - application/json
+
+paths:
+  /greeting:
+    get:
+      description: get greeting
+      parameters:
+        - name: name
+          in: query
+          type: string
+          x-examp: test
+      responses:
+        200:
+          description: ok
+          schema:
+            $ref: "#/definitions/Greeting"
+  /swagger:
+    x-swagger-pipe: swagger_raw
+
+definitions:
+  Greeting:
+    properties:
+      id:
+        type: integer
+      message:
+        type: string
+    required:
+      - id
+      - message
