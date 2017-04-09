@@ -30,3 +30,7 @@ dependencies {
     testCompile 'io.rest-assured:rest-assured:3.0.2'
     testCompile 'io.rest-assured:spring-mock-mvc:3.0.2'
 }
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.5'
+}
