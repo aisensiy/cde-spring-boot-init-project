@@ -1,5 +1,5 @@
 pipeline:
   build: 
-    image: java:8-alpine
+    image: java:8
     commands:
-      - sh ./gradlew clean bulid
+      - ./gradlew clean bulid
