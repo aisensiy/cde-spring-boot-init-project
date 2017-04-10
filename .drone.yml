@@ -5,5 +5,5 @@ pipeline:
       - GRADLE_USER_HOME=~/.gradle
     commands:
       - ./gradlew test
-      - ./gradlew bootRun
+      - ./gradlew bootRun &
       - curl http://localhost:8080
