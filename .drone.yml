@@ -5,9 +5,6 @@ pipeline:
       - GRADLE_USER_HOME=~/.gradle
     commands:
       - ./gradlew test
-      - ./gradlew bootRun &
-      - sleep 20
-      - curl http://localhost:8080
   notify:
     image: eisenxu/drone-ketsu-notification
     token: ${EXAM_ADMIN_TOKEN}
