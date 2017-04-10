@@ -6,4 +6,5 @@ pipeline:
     commands:
       - ./gradlew test
       - ./gradlew bootRun &
+      - sleep 20
       - curl http://localhost:8080
