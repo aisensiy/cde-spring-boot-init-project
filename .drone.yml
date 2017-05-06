@@ -1,10 +1,25 @@
 pipeline:
+  restore-cache:
+    image: drillster/drone-volume-cache
+    restore: true
+    mount: [ /drone/.gradle, /drone/.m2 ]
+    volumes: /tmp/cache:/cache
+
   build:
     image: java:openjdk-8
     environment:
-      - GRADLE_USER_HOME=~/.gradle
+      - M2_HOME=/drone/.m2
+      - MAVEN_HOME=/drone/.m2
+      - GRADLE_USER_HOME=/drone/.gradle
     commands:
       - ./gradlew test
+
+  rebuild-cache:
+    image: drillster/drone-volume-cache
+    rebuild: true
+    mount: [ /drone/.gradle, /drone/.m2 ]
+    volumes: /tmp/cache:/cache
+
   notify:
     image: eisenxu/drone-ketsu-notification
     token: ${EXAM_ADMIN_TOKEN}
