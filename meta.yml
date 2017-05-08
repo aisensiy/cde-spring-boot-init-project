@@ -5,3 +5,6 @@ freeze_files:
     - gradlew.bat
     - src/test/
     - .drone.yml
+report_files:
+    - TEST-hello.IndexControllerTest.xml
+    - TEST-hello.GreetingControllerTest.xml

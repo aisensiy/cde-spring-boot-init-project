@@ -4,6 +4,9 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import static io.restassured.module.mockmvc.RestAssuredMockMvc.given;
 import static org.hamcrest.core.IsEqual.equalTo;
 
@@ -17,5 +20,20 @@ public class GreetingControllerTest {
                 .then().statusCode(200)
                 .body("id", equalTo(1))
                 .body("message", equalTo("Hello, test"));
+    }
+
+    @Test
+    public void should_create_greeting_resource_success_and_get_greeting_back() throws Exception {
+        Map<String, Object> postParameter = new HashMap<String, Object>() {{
+            put("name", "test");
+        }};
+
+        given().standaloneSetup(new GreetingController())
+                .contentType("application/json")
+                .body(postParameter)
+                .when().post("/greeting")
+                .then().statusCode(201)
+                .body("message", equalTo("Hello, test"));
+
     }
 }

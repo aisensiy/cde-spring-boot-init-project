@@ -13,6 +13,11 @@ pipeline:
       - GRADLE_USER_HOME=/drone/.gradle
     commands:
       - ./gradlew test
+  
+  report:
+    image: eisenxu/junit-reportor
+    when: 
+      status: [ success, failure ]
 
   rebuild-cache:
     image: drillster/drone-volume-cache
@@ -20,9 +25,9 @@ pipeline:
     mount: [ /drone/.gradle, /drone/.m2 ]
     volumes: /tmp/cache:/cache
 
-  notify:
-    image: eisenxu/drone-ketsu-notification
-    token: ${EXAM_ADMIN_TOKEN}
-    host: https://ketsu-backend.herokuapp.com
-    when:
-      status: [ success, failure ]
+  # notify:
+  #   image: eisenxu/drone-ketsu-notification
+  #   token: ${EXAM_ADMIN_TOKEN}
+  #   host: https://ketsu-backend.herokuapp.com
+  #   when:
+  #     status: [ success, failure ]
