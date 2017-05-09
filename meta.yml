@@ -9,3 +9,4 @@ freeze_files:
 report_files:
     - TEST-hello.IndexControllerTest.xml
     - TEST-hello.GreetingControllerTest.xml
+report_target: report.json
