@@ -8,4 +8,3 @@ out/
 *.iws
 .vagrant/
 verify/node_modules
-report.json

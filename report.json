@@ -1,0 +1,17 @@
+{
+    "test_count": 3, 
+    "test_cases": [
+        {
+            "name": "should get index content", 
+            "passed": false
+        }, 
+        {
+            "name": "should get status 200 and get right message", 
+            "passed": false
+        }, 
+        {
+            "name": "should create greeting resource success and get greeting back", 
+            "passed": false
+        }
+    ]
+}
