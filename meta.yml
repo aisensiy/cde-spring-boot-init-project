@@ -6,7 +6,8 @@ freeze_files:
     - src/test/
     - .drone.yml
     - build.gradle
+    - .report.json
 report_files:
     - TEST-hello.IndexControllerTest.xml
     - TEST-hello.GreetingControllerTest.xml
-report_target: report.json
+report_target: .report.json
