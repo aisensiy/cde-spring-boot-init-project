@@ -25,9 +25,9 @@ pipeline:
     mount: [ /drone/.gradle, /drone/.m2 ]
     volumes: /tmp/cache:/cache
 
-  # notify:
-  #   image: eisenxu/drone-ketsu-notification
-  #   token: ${EXAM_ADMIN_TOKEN}
-  #   host: https://ketsu-backend.herokuapp.com
-  #   when:
-  #     status: [ success, failure ]
+  notify:
+    image: eisenxu/evaluation-notifier
+    token: ${TOKEN}
+    host: ${HOST}
+    when:
+      status: [ success, failure ]
